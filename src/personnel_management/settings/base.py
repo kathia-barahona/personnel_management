@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'personnel_management.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': os.getenv('DATABASE_NAME', 'personnel_management'),
-        'USER': os.getenv('DATABASE_USER', 'personnel_management'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'password'),
+        'NAME': os.getenv('DATABASE_NAME', 'gis'),
+        'USER': os.getenv('DATABASE_USER', 'user001'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', '123456789'),
         'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
         'PORT': os.getenv('DATABASE_PORT', '5432'),
     }

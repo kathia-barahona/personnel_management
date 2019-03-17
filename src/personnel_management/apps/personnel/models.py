@@ -1,5 +1,5 @@
 from django.db import models
-from branch.models import Branch
+from personnel_management.apps.branch.models import Branch
 # Create your models here.
 class Personnel(models.Model):
 	branch = models.ForeignKey(Branch, models.SET_NULL, blank=True, null=True)
