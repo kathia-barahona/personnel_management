@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY','!1+0jjchwf%)ko7)hqbcoz#lr_t-$!9c*#b$r9i069&c@#ashp')
-
+#SECRET_KEY = '!1+0jjchwf%)ko7)hqbcoz#lr_t-$!9c*#b$r9i069&c@#ashp' 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'storages',
-    'location_field.apps.DefaultConfig',
     #OWN APPS
     'personnel_management.apps.branch',
     'personnel_management.apps.personnel',
@@ -129,11 +128,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-BASE_WORKDIRECTORY = os.getcwd()
-os.chdir(os.path.dirname(lib_path))
+#BASE_WORKDIRECTORY = os.getcwd()
+#os.chdir(os.path.dirname(lib_path))
 
 # This loads the GDAL/OGR C library
-lgdal = CDLL(lib_path)
+#lgdal = CDLL(lib_path)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
