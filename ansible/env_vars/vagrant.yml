@@ -1,0 +1,19 @@
+---
+
+# Git settings.
+setup_git_repo: no
+git_branch: master
+
+
+# Database settings.
+db_user: "{{ application_name }}"
+db_name: "{{ application_name }}"
+db_password: password
+
+
+# Application settings.
+django_settings_file: "{{ application_name }}.settings.production"
+django_secret_key: "!1+0jjchwf%)ko7)hqbcoz#lr_t-$!9c*#b$r9i069&c@#ashp"
+
+run_django_db_migrations: yes
+run_django_collectstatic: yes

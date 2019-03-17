@@ -1,0 +1,12 @@
+---
+
+- include: setup_git_repo.yml
+
+- include: setup_virtualenv.yml
+
+- include: setup_django.yml
+
+- include: setup_apache2.yml
+
+
+

@@ -1,0 +1,35 @@
+---
+
+- include: create_swap_file.yml
+  when: create_swap_file
+  tags: swap
+
+- name: Install security updates
+  apt: default_release={{ ansible_distribution_release }}-security
+       update_cache={{ update_apt_cache }}
+       upgrade=dist
+  tags:
+    - packages
+    - skip_ansible_lint
+
+- name: Install required packages.
+  apt: name={{ item }} update_cache=yes force=yes state=installed
+  with_items:
+    - git
+    - apache2
+    - libapache2-mod-wsgi
+    - python-pip
+    - python-dev
+    - python3-gdal
+    - python-setuptools
+    - libjpeg-dev
+    - libgdal-dev
+    - libpq-dev
+    - binutils
+    - libproj-dev
+    - gdal-bin
+  tags: packages
+
+- name: Install virtualenv
+  pip: name=virtualenv
+  tags: packages

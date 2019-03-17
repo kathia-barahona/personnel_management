@@ -1,0 +1,10 @@
+# Vagrant
+.vagrant
+*.log
+vagrant_ansible_inventory_default
+
+# Ansible
+*.retry
+
+# Python
+*.pyc
