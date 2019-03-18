@@ -141,8 +141,9 @@ if USE_S3:
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID','AKIAJQYAOG5GJN2C53IA')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY','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')
     AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME','personnel-management-static')
+    AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME",'us-west-2')
     AWS_DEFAULT_ACL = 'public-read'
-    AWS_S3_CUSTOM_DOMAIN = '{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     
 
@@ -151,9 +152,8 @@ if USE_S3:
     #STATIC_URL = 'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
     #TATICFILES_STORAGE = 'personnel_management.apps.branches.AS3_storage.FacadeImageStorage'
     PUBLIC_MEDIA_LOCATION = 'media'
-    MEDIA_URL = 'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    print(AWS_STORAGE_BUCKET_NAME) 
-    DEFAULT_FILE_STORAGE = 'personnel_management.apps.branches.AS3_storage.FacadeImageStorage'
+    MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'+PUBLIC_MEDIA_LOCATION+"/"
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 else:
     MEDIA_URL = '/media/'
