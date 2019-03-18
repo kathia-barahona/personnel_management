@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'jquery',
     'storages',
+    'crispy_forms',
+    'compressor',
     #OWN APPS
-    'personnel_management.apps.branch',
-    'personnel_management.apps.personnel',
+    'personnel_management.apps.branches',
+    'personnel_management.apps.personnels',
 ]
 
 MIDDLEWARE = [
@@ -128,12 +131,28 @@ USE_L10N = True
 
 USE_TZ = True
 
-#BASE_WORKDIRECTORY = os.getcwd()
-#os.chdir(os.path.dirname(lib_path))
 
-# This loads the GDAL/OGR C library
-#lgdal = CDLL(lib_path)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+STATIC_ROOT = os.getenv('STATIC_ROOT',
+    os.path.join(BASE_DIR, 'collected_static'))
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder'
+)
+ 
+
+
+
+
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

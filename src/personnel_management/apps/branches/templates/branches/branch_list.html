@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if total_branch_amount == 0 %}
+  <div> No Branches Found </div>
+  {% else %}
+	  {% for branch in branches%}
+          <div class="card" style="width: 18rem;">
+          	<img src="...">
+          	<div class="card-body">
+          		<h5 class="card-title">{{ branch.name }}</h5>
+          	</div>
+          </div>
+	  {% endfor %}
+  {% endif %}
+{% endblock %}

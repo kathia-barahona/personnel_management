@@ -17,8 +17,12 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include,url
+from personnel_management.apps.branches.views import branch_list_view
 
-urlpatterns = [
+
+
+urlpatterns = [ 
+    path('', branch_list_view),
     path('admin/', admin.site.urls),
 ]
 
