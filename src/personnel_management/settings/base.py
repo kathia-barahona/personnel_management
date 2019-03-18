@@ -145,7 +145,7 @@ if USE_S3:
     AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-    
+     
 
     # s3 static settings
     #STATIC_LOCATION = 'static'
@@ -153,9 +153,9 @@ if USE_S3:
     #TATICFILES_STORAGE = 'personnel_management.apps.branches.AS3_storage.FacadeImageStorage'
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'+PUBLIC_MEDIA_LOCATION+"/"
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    DEFAULT_FILE_STORAGE = 'personnel_management.apps.branches.AS3_storage.FacadeImageStorage'
 
-else:
+else: 
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
