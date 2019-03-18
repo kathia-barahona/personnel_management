@@ -17,8 +17,11 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include,url
-from personnel_management.apps.branches.views import branch_list_view
 
+
+from django.views.static import serve
+from personnel_management.apps.branches.views import branch_list_view
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 
 
 urlpatterns = [ 
@@ -35,4 +38,7 @@ if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
-    ]
+        url(r'^media/(?P<path>.*)$',serve, { 
+                'document_root': settings.MEDIA_ROOT
+            })
+    ]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
