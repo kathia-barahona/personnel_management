@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if total_branch_amount == 0 %}
+  <div> No Personnel Found </div>
+  {% else %}
+	  {% for personnel in personnels%}
+	  {% endfor %}
+  {% endif %}
+{% endblock %}

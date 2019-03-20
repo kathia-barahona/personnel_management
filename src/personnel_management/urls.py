@@ -20,11 +20,12 @@ from django.conf.urls import include,url
 
 
 from django.views.static import serve
-from personnel_management.apps.branches.views import branch_list_view
+from personnel_management.apps.branches.views import branch_list_view,branch_create_view
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 
 urlpatterns = [ 
+    path('branch/create',branch_create_view),
     path('', branch_list_view),
     path('admin/', admin.site.urls),
 ]

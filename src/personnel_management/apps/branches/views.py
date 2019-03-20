@@ -1,7 +1,8 @@
 from django.shortcuts import render
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Branch
-
+from .forms import BranchCreateForm
 
 # Create your views here.
 def branch_list_view(request, *args,**kwargs):
@@ -18,3 +19,10 @@ def branch_list_view(request, *args,**kwargs):
 				"total_branch_amount": paginator.count
 			  }
 	return render(request, "branches/branch_list.html",context)
+
+def branch_create_view(request, *args, **kwargs):
+	form = BranchCreateForm(request.POST or None) 
+
+	if request.method == 'POST':
+		pass
+	return render(request, 'branches/branch_create.html', {"form": form})

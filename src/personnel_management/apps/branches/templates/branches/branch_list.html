@@ -6,7 +6,7 @@
   {% else %}
 	  {% for branch in branches%}
           <div class="card" style="width: 18rem;">
-          	<img src="...">
+          	<img src="{{branch.facade_image.url}}">
           	<div class="card-body">
           		<h5 class="card-title">{{ branch.name }}</h5>
           	</div>

@@ -1,0 +1,8 @@
+main > .container {
+	padding: 10%;
+    margin-top: 10%;
+    background-color: #F4F4F4;
+    opacity: 0.85;
+    border: 1px solid #F2F2F2;
+    box-shadow: 0 0 black;
+}	
